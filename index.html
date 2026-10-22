@@ -78,6 +78,28 @@
         }
         .gs-stat span { display: block; font-size: 1.6em; font-weight: bold; color: #007bff; }
 
+        /* ===== Danh sách bài báo (MỚI) ===== */
+        #gs-pubs { display: none; margin-top: 20px; }
+        #gs-pubs h3 { margin: 0 0 8px; }
+        .gs-pub-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; font-size: 0.9em; }
+        .gs-pub-tools select, .gs-pub-tools input {
+            padding: 5px 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 1em;
+        }
+        .gs-pub-tools input { flex: 1 1 200px; }
+        .gs-pub-list { list-style: none; margin: 0; padding: 0; }
+        .gs-pub {
+            display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee;
+        }
+        .gs-pub:last-child { border-bottom: none; }
+        .gs-pub-main { flex: 1; min-width: 0; }
+        .gs-pub-title { font-weight: bold; color: #1a0dab; overflow-wrap: anywhere; }
+        .gs-pub-authors { font-size: 0.88em; color: #555; }
+        .gs-pub-venue { font-size: 0.88em; color: #777; font-style: italic; }
+        .gs-pub-side { flex: 0 0 auto; text-align: right; font-size: 0.85em; color: #555; min-width: 70px; }
+        .gs-pub-side b { display: block; font-size: 1.15em; color: #007bff; }
+        .gs-more { margin-top: 10px; padding: 6px 16px; border: 1px solid #007bff; background: white; color: #007bff; border-radius: 4px; cursor: pointer; }
+        .gs-more:hover { background: #007bff; color: white; }
+
         /* ===== Thư viện Markdown ===== */
         .admin-note {
             margin: 10px 0;
@@ -143,7 +165,7 @@
     <div class="section" id="google-scholar" style="display:none">
         <h2>Công trình khoa học (Google Scholar / Publications)</h2>
         <div class="lesson">
-            <div class="gs-box">
+            <div class="gs-box" id="gs-box" style="display:none">
                 <a class="gs-btn" id="gs-link" href="#" target="_blank" rel="noopener noreferrer">
                     Xem hồ sơ Google Scholar GV Nguyễn Văn Lợi
                 </a>
@@ -153,6 +175,22 @@
                 <div class="gs-stat"><span id="gs-cit">--</span>Trích dẫn / Citations</div>
                 <div class="gs-stat"><span id="gs-h">--</span>h-index</div>
                 <div class="gs-stat"><span id="gs-i10">--</span>i10-index</div>
+            </div>
+
+            <!-- DANH SÁCH BÀI BÁO (MỚI): lấy từ mảng "publications" trong scholar.json -->
+            <div id="gs-pubs">
+                <h3 id="gs-pubs-title">Danh sách bài báo / Publications</h3>
+                <div class="gs-pub-tools">
+                    <label for="gs-sort">Sắp xếp:</label>
+                    <select id="gs-sort">
+                        <option value="year">Năm (mới nhất)</option>
+                        <option value="cites">Số trích dẫn</option>
+                        <option value="title">Tên bài (A-Z)</option>
+                    </select>
+                    <input id="gs-search" type="search" placeholder="Tìm theo tên bài, tác giả, tạp chí...">
+                </div>
+                <ol class="gs-pub-list" id="gs-pub-list"></ol>
+                <button class="gs-more" id="gs-more" type="button" style="display:none">Xem tất cả</button>
             </div>
         </div>
     </div>
@@ -210,6 +248,8 @@
          *   Vietnamese/ch5-1.png,    ch5-2.png, ...      -> Công thức Chương 5
          *   Vietnamese/dethi-1.png,  dethi-2.png, ...    -> Đề thi mẫu (đề, đáp án xen kẽ)
          *
+         * LƯU Ý: GitHub Pages PHÂN BIỆT HOA/THƯỜNG. "Vietnamese" khác "vietnamese",
+         *        "matcat-1.png" khác "matcat-1.PNG".
          * Định dạng chấp nhận: png, jpg, jpeg, webp (thử lần lượt theo thứ tự trong EXTS).
          * Muốn thêm ảnh: chỉ cần upload ảnh kế tiếp (vd dethi-11.png). Không sửa code.
          * Muốn thêm nhóm mới: thêm 1 dòng vào IMAGE_GROUPS và 1 thẻ <div id="..."> ở trên.
@@ -284,25 +324,45 @@
         // >>> CHỈ CẦN ĐIỀN GOOGLE SCHOLAR ID VÀO ĐÂY <<<
         // GS ID = phần sau "user=" trong link hồ sơ.
         // Ví dụ: https://scholar.google.com/citations?user=AbCdEfGhIjKl&hl=vi  ->  GS_ID = "AbCdEfGhIjKl"
-        // Để "" (rỗng) thì cả mục tự ẩn.
+        // GS_ID LÀ TÙY CHỌN:
+        //  - Để "" (rỗng): trang vẫn hiện số liệu + danh sách bài báo từ scholar.json,
+        //    chỉ ẩn nút "Xem hồ sơ Google Scholar" (trừ khi scholar.json có khóa "scholar_id").
+        //  - Điền ID: hiện thêm nút link hồ sơ, và dùng được cache/proxy khi không có scholar.json.
+        //  - Không có ID và không có scholar.json -> cả mục tự ẩn.
         var GS_ID = "";
 
         // Cách lấy số liệu, thử lần lượt:
         //  1) File "scholar.json" cạnh index.html (tạo bằng update_scholar.py, ổn định nhất)
-        //     Dạng: {"citations": 123, "h_index": 5, "i10_index": 3}
+        //     Dạng tối thiểu: {"citations": 123, "h_index": 5, "i10_index": 3}
+        //     Có thêm danh sách bài báo:
+        //     {"citations": 123, "h_index": 5, "i10_index": 3,
+        //      "publications": [
+        //        {"title": "...", "authors": "...", "venue": "...", "year": 2024, "citations": 10, "link": "https://..."}
+        //      ]}
+        //     (Cũng tự nhận dạng JSON của thư viện "scholarly": bib.title, bib.pub_year,
+        //      bib.citation, num_citations, author_pub_id ...)
         //  2) Cache trong trình duyệt (24 giờ)
         //  3) CORS proxy nếu GS_USE_PROXY = true (không đảm bảo, Google có thể chặn)
         // Không lấy được -> khối số liệu tự ẩn, nút link vẫn hiện.
         var GS_USE_PROXY = true;
         var GS_PROXY = "https://api.allorigins.win/raw?url=";
+        var GS_PUBS_INITIAL = 10; // số bài hiện ban đầu, bấm "Xem tất cả" để hiện hết
 
         (function () {
-            if (!GS_ID || GS_ID === "YOUR_SCHOLAR_ID") return;
-            var PROFILE = "https://scholar.google.com/citations?user=" + encodeURIComponent(GS_ID);
-            var KEY = "gs_stats_" + GS_ID;
+            var ID = (GS_ID && GS_ID !== "YOUR_SCHOLAR_ID") ? GS_ID : "";
+            var PROFILE = "", KEY = "";
+            var section = document.getElementById("google-scholar");
 
-            document.getElementById("gs-link").href = PROFILE + "&hl=vi";
-            document.getElementById("google-scholar").style.display = "";
+            // Có ID -> bật nút link hồ sơ (ID lấy từ GS_ID hoặc từ scholar.json)
+            function setId(id) {
+                ID = id;
+                PROFILE = "https://scholar.google.com/citations?user=" + encodeURIComponent(ID);
+                KEY = "gs_stats_" + ID;
+                document.getElementById("gs-link").href = PROFILE + "&hl=vi";
+                document.getElementById("gs-box").style.display = "";
+                section.style.display = "";
+            }
+            if (ID) setId(ID);
 
             function toNum(t) { return parseInt(String(t).replace(/\D/g, ""), 10); }
 
@@ -311,6 +371,7 @@
                 document.getElementById("gs-h").textContent = d.h_index;
                 document.getElementById("gs-i10").textContent = d.i10_index;
                 document.getElementById("gs-stats").style.display = "";
+                section.style.display = "";
             }
 
             function validStats(d) {
@@ -318,13 +379,123 @@
                        typeof d.h_index === "number" && typeof d.i10_index === "number";
             }
 
+            // ---------- DANH SÁCH BÀI BÁO (MỚI) ----------
+            // Tìm mảng bài báo trong JSON, chấp nhận nhiều tên khóa khác nhau.
+            function pubsOf(d) {
+                if (!d) return [];
+                var a = d.publications || d.articles || d.papers || d.pubs || d.items || [];
+                return Array.isArray(a) ? a : [];
+            }
+
+            function pick() {
+                for (var i = 0; i < arguments.length; i++) {
+                    var v = arguments[i];
+                    if (v !== undefined && v !== null && v !== "") return v;
+                }
+                return "";
+            }
+
+            // Chuẩn hóa 1 bài báo về dạng {title, authors, venue, year, cites, link}
+            function normPub(p) {
+                if (typeof p === "string") return { title: p, authors: "", venue: "", year: 0, cites: 0, link: "" };
+                var b = p.bib || {};
+                var authors = pick(p.authors, p.author, b.author, b.authors);
+                if (Array.isArray(authors)) authors = authors.join(", ");
+                var link = pick(p.link, p.url, p.pub_url, p.eprint_url, b.url);
+                if (!link && p.author_pub_id) {
+                    link = "https://scholar.google.com/citations?view_op=view_citation&hl=vi&citation_for_view=" +
+                           encodeURIComponent(p.author_pub_id);
+                }
+                return {
+                    title: String(pick(p.title, b.title, "(Không có tên)")),
+                    authors: String(authors || ""),
+                    venue: String(pick(p.venue, p.journal, p.publication, p.citation, p.pub, b.venue, b.journal, b.citation) || ""),
+                    year: parseInt(pick(p.year, p.pub_year, b.pub_year, b.year), 10) || 0,
+                    cites: parseInt(pick(p.citations, p.num_citations, p.cited_by, p.cites, 0), 10) || 0,
+                    link: String(link || "")
+                };
+            }
+
+            function renderPubs(raw) {
+                var all = raw.map(normPub);
+                if (!all.length) return;
+                var box = document.getElementById("gs-pubs");
+                var list = document.getElementById("gs-pub-list");
+                var more = document.getElementById("gs-more");
+                var sortSel = document.getElementById("gs-sort");
+                var search = document.getElementById("gs-search");
+                var expanded = false;
+
+                document.getElementById("gs-pubs-title").textContent =
+                    "Danh sách bài báo / Publications (" + all.length + ")";
+
+                function el(tag, cls, text) {
+                    var e = document.createElement(tag);
+                    if (cls) e.className = cls;
+                    if (text) e.textContent = text; // dùng textContent -> an toàn, không chèn HTML lạ
+                    return e;
+                }
+
+                function draw() {
+                    var q = search.value.trim().toLowerCase();
+                    var s = sortSel.value;
+                    var arr = all.filter(function (p) {
+                        return !q || (p.title + " " + p.authors + " " + p.venue).toLowerCase().indexOf(q) !== -1;
+                    });
+                    arr.sort(function (a, b) {
+                        if (s === "cites") return b.cites - a.cites || b.year - a.year;
+                        if (s === "title") return a.title.localeCompare(b.title, "vi");
+                        return b.year - a.year || b.cites - a.cites;
+                    });
+
+                    var limit = (expanded || q) ? arr.length : GS_PUBS_INITIAL;
+                    list.innerHTML = "";
+                    arr.slice(0, limit).forEach(function (p) {
+                        var li = el("li", "gs-pub");
+                        var main = el("div", "gs-pub-main");
+                        var t;
+                        if (p.link) {
+                            t = el("a", "gs-pub-title", p.title);
+                            t.href = p.link;
+                            t.target = "_blank";
+                            t.rel = "noopener noreferrer";
+                        } else {
+                            t = el("div", "gs-pub-title", p.title);
+                        }
+                        main.appendChild(t);
+                        if (p.authors) main.appendChild(el("div", "gs-pub-authors", p.authors));
+                        if (p.venue) main.appendChild(el("div", "gs-pub-venue", p.venue));
+                        li.appendChild(main);
+
+                        var side = el("div", "gs-pub-side");
+                        var c = el("b", "", String(p.cites));
+                        side.appendChild(c);
+                        side.appendChild(document.createTextNode("trích dẫn"));
+                        if (p.year) side.appendChild(el("div", "", String(p.year)));
+                        li.appendChild(side);
+                        list.appendChild(li);
+                    });
+                    if (!arr.length) list.appendChild(el("li", "", "Không tìm thấy bài nào."));
+                    more.style.display = (!q && !expanded && arr.length > GS_PUBS_INITIAL) ? "" : "none";
+                    more.textContent = "Xem tất cả (" + arr.length + " bài)";
+                }
+
+                sortSel.onchange = draw;
+                search.oninput = draw;
+                more.onclick = function () { expanded = true; draw(); };
+                box.style.display = "block";
+                section.style.display = "";
+                draw();
+            }
+            // ---------- HẾT PHẦN DANH SÁCH BÀI BÁO ----------
+
             function fromJson() {
                 return fetch("scholar.json", { cache: "no-cache" })
-                    .then(function (r) { if (!r.ok) throw new Error("no json"); return r.json(); })
-                    .then(function (d) { if (!validStats(d)) throw new Error("bad json"); return d; });
+                    .then(function (r) { if (!r.ok) throw new Error("no json"); return r.json(); });
             }
 
             function fromCache() {
+                if (!ID) return Promise.reject(new Error("no id"));
                 try {
                     var c = JSON.parse(localStorage.getItem(KEY));
                     if (c && validStats(c.d) && Date.now() - c.t < 864e5) return Promise.resolve(c.d);
@@ -333,7 +504,7 @@
             }
 
             function fromProxy() {
-                if (!GS_USE_PROXY) return Promise.reject(new Error("proxy off"));
+                if (!GS_USE_PROXY || !ID) return Promise.reject(new Error("proxy off"));
                 return fetch(GS_PROXY + encodeURIComponent(PROFILE + "&hl=en"))
                     .then(function (r) { if (!r.ok) throw new Error("proxy http"); return r.text(); })
                     .then(function (html) {
@@ -347,7 +518,21 @@
                     });
             }
 
-            fromJson().catch(fromCache).catch(fromProxy).then(show, function () { /* giữ khối ẩn */ });
+            // Đọc scholar.json 1 lần: có bài báo thì vẽ danh sách; có số liệu thì dùng luôn,
+            // thiếu số liệu thì mới thử cache / proxy.
+            fromJson()
+                .catch(function () { return null; })
+                .then(function (j) {
+                    if (!ID && j) {
+                        var jid = j.scholar_id || j.gs_id || j.user_id || j.scholar_user;
+                        if (jid) setId(String(jid));
+                    }
+                    var pubs = pubsOf(j);
+                    if (pubs.length) renderPubs(pubs);
+                    if (validStats(j)) return j;
+                    return fromCache().catch(fromProxy);
+                })
+                .then(show, function () { /* giữ khối số liệu ẩn */ });
         })();
     </script>
 
