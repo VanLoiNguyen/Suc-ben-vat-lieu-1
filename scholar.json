@@ -1,0 +1,312 @@
+{
+  "updated": "2026-10-22T15:27:42Z",
+  "citations": 757,
+  "h_index": 16,
+  "i10_index": 20,
+  "publications": [
+    {
+      "title": "Free vibration analysis and optimization of doubly-curved stiffened sandwich shells with functionally graded skins and auxetic honeycomb core layer",
+      "authors": "HA Pham, HQ Tran, MT Tran, VL Nguyen, QT Huong",
+      "venue": "Thin-Walled Structures 179, 109571, 2022",
+      "year": 2022,
+      "citations": 91,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:isC4tDSrTZIC"
+    },
+    {
+      "title": "Free vibration of stiffened functionally graded circular cylindrical shell resting on Winkler–Pasternak foundation with different boundary conditions under thermal environment",
+      "authors": "MT Tran, VL Nguyen, SD Pham, J Rungamornrat",
+      "venue": "Acta mechanica 231 (6), 2545-2564, 2020",
+      "year": 2020,
+      "citations": 64,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:dhFuZR0502QC"
+    },
+    {
+      "title": "Reddy’s third-order shear deformation shell theory for free vibration analysis of rotating stiffened advanced nanocomposite toroidal shell segments in thermal environments",
+      "authors": "VL Nguyen, MT Tran, S Limkatanyu, H Mohammad-Sedighi, ...",
+      "venue": "Acta Mechanica 233 (11), 4659–4684, 2022",
+      "year": 2022,
+      "citations": 56,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:k_IJM867U9cC"
+    },
+    {
+      "title": "Free vibration analysis of rotating FGP sandwich cylindrical shells with metal-foam core layer",
+      "authors": "VL Nguyen, MT Tran, S Limkatanyu, J Rungamornrat",
+      "venue": "Mechanics of Advanced Materials and Structures, 1-14, 2022",
+      "year": 2022,
+      "citations": 56,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:j3f4tGmQtD8C"
+    },
+    {
+      "title": "Simple first-order shear deformation theory for free vibration of FGP-GPLRC spherical shell segments",
+      "authors": "VL Nguyen, S Limkatanyu, HT Thai, J Rungamornrat",
+      "venue": "Mechanics of Advanced Materials and Structures 31 (25), 6944-6961, 2023",
+      "year": 2023,
+      "citations": 51,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:blknAaTinKkC"
+    },
+    {
+      "title": "Vibration analysis of rotating functionally graded cylindrical shells with orthogonal stiffeners",
+      "authors": "MT Tran, VL Nguyen",
+      "venue": "Latin American Journal of Solids and Structures 13 (15), 2952-2969, 2016",
+      "year": 2016,
+      "citations": 49,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:mVmsd5A6BfQC"
+    },
+    {
+      "title": "Optimisation of stiffeners for maximum fundamental frequency of cross-ply laminated cylindrical panels using social group optimisation and smeared stiffener method",
+      "authors": "MT Tran, HA Pham, VL Nguyen, AT Trinh",
+      "venue": "Thin-Walled Structures 120, 172-179, 2017",
+      "year": 2017,
+      "citations": 44,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:Wp0gIr-vW9MC"
+    },
+    {
+      "title": "Free vibration analysis of rotating stiffened functionally graded graphene-platelet-reinforced composite toroidal shell segments with novel four- unknown refined theories",
+      "authors": "VL Nguyen, S Limkatanyu, TQ Bui, J Rungamornrat",
+      "venue": "International Journal of Mechanics and Materials in Design, 2022",
+      "year": 2022,
+      "citations": 41,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:M3NEmzRMIkIC"
+    },
+    {
+      "title": "Free vibration and buckling analyses of functionally graded plates with graphene platelets reinforcement",
+      "authors": "S Roun, VL Nguyen, J Rungamornrat",
+      "venue": "Journal of Computing and Information Science in Engineering 25 (1), 011002, 2024",
+      "year": 2024,
+      "citations": 40,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:GnPB-g6toBAC"
+    },
+    {
+      "title": "Free vibration characteristics of rotating functionally graded porous circular cylindrical shells with different boundary conditions",
+      "authors": "XH Dang, VL Nguyen, MT Tran, BP Nguyen Thi",
+      "venue": "Iranian Journal of Science and Technology, Transactions of Mechanical …, 2022",
+      "year": 2022,
+      "citations": 40,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:4JMBOYKVnBMC"
+    },
+    {
+      "title": "Static and vibration analysis of cross-ply laminated composite doubly curved shallow shell panels with stiffeners resting on Winkler–Pasternak elastic foundations",
+      "authors": "MT Tran, VL Nguyen, AT Trinh",
+      "venue": "International Journal of Advanced Structural Engineering 9 (2), 153-164, 2017",
+      "year": 2017,
+      "citations": 34,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:9ZlFYXVOiuMC"
+    },
+    {
+      "title": "Exact solution for nonlinear static behaviors of functionally graded beams with porosities resting on elastic foundation using neutral surface concept",
+      "authors": "N Van Long, VL Nguyen, MT Tran, DK Thai",
+      "venue": "Proceedings of the Institution of Mechanical Engineers, Part C: Journal of …, 2021",
+      "year": 2021,
+      "citations": 29,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:_Qo2XoVZTnwC"
+    },
+    {
+      "title": "Analytical solution for free vibration of stiffened functionally graded cylindrical shell structure resting on elastic foundation",
+      "authors": "VL Nguyen, TP Hoang",
+      "venue": "SN Applied Sciences 1 (10), 1150, 2019",
+      "year": 2019,
+      "citations": 23,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:ZeXyd9-uunAC"
+    },
+    {
+      "title": "Nonlinear dynamic analysis of auxetic-FGM sandwich plates resting on a Kerr elastic substrate under blast loading",
+      "authors": "XH Dang, VL Nguyen, MT Tran, BD Tran, VL Nguyen",
+      "venue": "Proceedings of the Institution of Mechanical Engineers, Part C: Journal of …, 2024",
+      "year": 2024,
+      "citations": 20,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:BqipwSGYUEgC"
+    },
+    {
+      "title": "Electro-thermal vibration of graphene platelets reinforced functionally graded piezoelectric microplates under different boundary conditions",
+      "authors": "VL Nguyen, N Sukulthanasorn, W Smittakorn, J Rungamornrat",
+      "venue": "International Journal of Solids and Structures 314, 113273, 2025",
+      "year": 2025,
+      "citations": 18,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:M05iB0D1s5AC"
+    },
+    {
+      "title": "Nonlinear dynamic response of functionally graded porous beams under a moving mass using Reddy’s beam theory",
+      "authors": "VL Nguyen, MT Tran, TB Chu, TA Nguyen, VL Nguyen",
+      "venue": "Iranian Journal of Science and Technology, Transactions of Mechanical …, 2023",
+      "year": 2023,
+      "citations": 16,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:NMxIlDl6LWMC"
+    },
+    {
+      "title": "Static behaviour of functionally graded plates resting on elastic foundations using neutral surface concept",
+      "authors": "VL Nguyen, MT Tran, VL Nguyen, QH Le",
+      "venue": "Archive of Mechanical Engineering 68 (1), 5-22, 2021",
+      "year": 2021,
+      "citations": 15,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:HDshCWvjkbEC"
+    },
+    {
+      "title": "Investigation of static buckling and bending of nanoplates made of new functionally graded materials considering surface effects on an elastic foundation",
+      "authors": "VL Nguyen, VL Nguyen, MT Tran, XT Dang",
+      "venue": "Acta Mechanica 235 (12), 7807-7833, 2024",
+      "year": 2024,
+      "citations": 11,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:ldfaerwXgEUC"
+    },
+    {
+      "title": "Free vibration of rotating functionally graded material cylindrical shells with orthogonal stiffeners",
+      "authors": "MT Tran, VL Nguyen",
+      "venue": "Proceedings of the Eleventh Joint Canada-Japan Workshop on Composites …, 2017",
+      "year": 2017,
+      "citations": 11,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:QIV2ME_5wuYC"
+    },
+    {
+      "title": "Dynamic responses of saturated functionally graded porous plates resting on elastic foundation and subjected to a moving mass using pb2-Ritz method",
+      "authors": "VL Nguyen, VL Nguyen, TA Nguyen, MT Tran",
+      "venue": "Acta Mechanica 235 (8), 5301-5327, 2024",
+      "year": 2024,
+      "citations": 10,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:2P1L_qKh6hAC"
+    },
+    {
+      "title": "Vibration analysis of cross-ply laminated composite doubly curved shallow shell panels with stiffeners",
+      "authors": "AT Trinh, MT Tran, HQ Tran, VL Nguyen",
+      "venue": "Vietnam Journal of Science and Technology 55 (3), 382, 2017",
+      "year": 2017,
+      "citations": 9,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:7PzlFSSx8tAC"
+    },
+    {
+      "title": "Free vibration analysis of graphene-reinforced FGM nanoplates with surface energy effects resting on elastic foundation",
+      "authors": "TB Chu, VL Nguyen, MT Tran, VL Nguyen, XT Dang",
+      "venue": "Iranian Journal of Science and Technology, Transactions of Mechanical …, 2025",
+      "year": 2025,
+      "citations": 6,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:g5m5HwL7SMYC"
+    },
+    {
+      "title": "Free vibration analysis of smart piezoelectric GPL-reinforced FGM microplates placed on Winkler–Pasternak foundation",
+      "authors": "VL Nguyen, TB Chu, MT Tran, J Rungamornrat",
+      "venue": "Acta Mechanica 237 (1), 153-179, 2026",
+      "year": 2026,
+      "citations": 5,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:zA6iFVUQeVQC"
+    },
+    {
+      "title": "Nonlinear dynamic response of functionally graded fluid-saturated porous plates subjected to a moving harmonic load",
+      "authors": "VL Nguyen, MT Tran, VL Nguyen",
+      "venue": "Iranian Journal of Science and Technology, Transactions of Mechanical …, 2025",
+      "year": 2025,
+      "citations": 4,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:pqnbT2bcN3wC"
+    },
+    {
+      "title": "Free vibration analysis of rotating functionally graded triply periodic minimal surface cylindrical shells",
+      "authors": "VL Nguyen, J Rungamornrat",
+      "venue": "Materials and Emerging Technologies for Sustainability 1 (03), 2550013, 2025",
+      "year": 2025,
+      "citations": 3,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:rO6llkc54NcC"
+    },
+    {
+      "title": "Free vibration analysis of toroidal shell segments with novel four-unknown refined theory",
+      "authors": "VL Nguyen, S Limkatanyu, J Rungamornrat",
+      "venue": "The Seventeenth East Asia-Pacific Conference on Structural Engineering and …, 2023",
+      "year": 2023,
+      "citations": 3,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:maZDTaKrznsC"
+    },
+    {
+      "title": "Free Vibration of Functionally Graded Triply Periodic Minimal Surface Cylindrical Shells with Elastic Boundary Constraints",
+      "authors": "VL Nguyen",
+      "venue": "Iranian Journal of Science and Technology, Transactions of Mechanical …, 2026",
+      "year": 2026,
+      "citations": 2,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:a0OBvERweLwC"
+    },
+    {
+      "title": "Free vibration analysis of graphene-reinforced FGM microplates under different boundary conditions",
+      "authors": "NV Loi, CHT BINH",
+      "venue": "The University of Danang-Journal of Science and Technology, 70-76, 2024",
+      "year": 2024,
+      "citations": 2,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:b0M2c_1WBrUC"
+    },
+    {
+      "title": "Phân tích tần số dao động riêng của vỏ trụ tròn làm bằng vật liệu có cơ tính biến thiên có gân gia cường",
+      "authors": "NV Lợi, TB Định, CT Bình",
+      "venue": "Tạp chí Khoa học Công nghệ Xây dựng (TCKHCNXD)-ĐHXDHN 12 (6), 20-28, 2018",
+      "year": 2018,
+      "citations": 2,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:dfsIfKJdRG4C"
+    },
+    {
+      "title": "Analytical solution for free vibration of circular cylindrical sell and cylindrical panels",
+      "authors": "TM Tú, NV Lợi",
+      "venue": "Tạp chí Khoa học Công nghệ Xây dựng (TCKHCNXD)-ĐHXDHN 9 (3), 31-36, 2015",
+      "year": 2015,
+      "citations": 2,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:4OULZ7Gr8RgC"
+    },
+    {
+      "title": "Static bending and buckling analyses of GPL-FGM microplates placed on Winkler-Pasternak elastic foundation",
+      "authors": "J Rungamornrat, VL Nguyen, MT Tran",
+      "venue": "Journal of Science and Technology in Civil Engineering (JSTCE)-HUCE 19 (4 …, 2025",
+      "year": 2025,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:yD5IFk8b50cC"
+    },
+    {
+      "title": "Phân tích dao động riêng của kết cấu tấm FGM có kích thước micro đặt trên nền đàn hồi",
+      "authors": "NV Lợi, ĐX Hùng, ĐQ Cường",
+      "venue": "Tạp chí Khoa học Công nghệ Xây dựng (TCKHCNXD)-ĐHXDHN 18 (3V), 34–47-34–47, 2024",
+      "year": 2024,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:fPk4N6BV_jEC"
+    },
+    {
+      "title": "Long Nguyen &",
+      "authors": "V Nguyen, G Kelsberg",
+      "venue": "The Journal of Family Practice 63, 8, 2023",
+      "year": 2023,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:dshw04ExmUIC"
+    },
+    {
+      "title": "Phân tích dao động của tấm FGM xốp bão hòa chất lưu chịu tải trọng di động",
+      "authors": "NV Long, NV Lợi, TV Bình",
+      "venue": "Tạp chí Khoa học Công nghệ Xây dựng (TCKHCNXD)-ĐHXDHN 17 (4V), 64-79, 2023",
+      "year": 2023,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:3s1wT3WcHBgC"
+    },
+    {
+      "title": "Xác định hệ số hiệu chỉnh cắt trong dầm làm bằng vật liệu có cơ tính biến thiên",
+      "authors": "TB Định, NV Lợi, CT Bình",
+      "venue": "Tạp chí Khoa học Công nghệ Xây dựng (TCKHCNXD)-ĐHXDHN 12 (7), 56-65, 2018",
+      "year": 2018,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:4DMP91E08xMC"
+    },
+    {
+      "title": "Phân tích tĩnh tấm làm bằng vật liệu có cơ tính biến thiên (FGM) theo lý thuyết tấm hai ẩn chuyển vị cải tiến và vị trí mặt trung hòa",
+      "authors": "MT Tran, VL Nguyen, TB Chu",
+      "venue": "Hội nghị Khoa học toàn quốc Vật liệu và Kết cấu Composite, Cơ học, Công nghệ …, 2016",
+      "year": 2016,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:bEWYMUwI8FkC"
+    },
+    {
+      "title": "Phân tích dao động riêng của tấm composite lớp theo lý thuyết biến dạng cắt bậc cao tám ẩn số chuyển vị (Vibration analysis of cross-ply laminated composite plates using new …",
+      "authors": "VL Nguyen, MT Tran",
+      "venue": "Hội nghị Khoa học toàn quốc Vật liệu và Kết cấu Composite, Cơ học, Công nghệ …, 2016",
+      "year": 2016,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:iH-uZ7U-co4C"
+    },
+    {
+      "title": "Phân tích dao động riêng vỏ trụ tròn làm bằng vật liệu cơ tính biến thiên có gân gia cường",
+      "authors": "TM Tú, NV Lợi, NTB Phượng, H Vinh",
+      "venue": "Hội nghị Khoa học toàn quốc Cơ học Vật rắn biến dạng lần thứ XII 2, 1498-1505, 2015",
+      "year": 2015,
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CYrMZakAAAAJ&pagesize=100&citation_for_view=CYrMZakAAAAJ:TFP_iSt0sucC"
+    }
+  ]
+}
