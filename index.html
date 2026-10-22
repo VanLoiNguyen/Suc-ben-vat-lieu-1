@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tài liệu học tập / Learning Materials</title>    
-   
+    <title>Tài liệu học tập / Learning Materials</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,12 +21,9 @@
             border-radius: 5px;
             margin-bottom: 20px;
         }
-        h1, h2, h3 {
-            color: #333;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
+        header h1, header p { color: white; }
+        h1, h2, h3 { color: #333; }
+        .section { margin-bottom: 30px; }
         .section h2 {
             background-color: #e9ecef;
             padding: 10px;
@@ -44,27 +41,11 @@
             height: auto;
             border-radius: 5px;
         }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 ratio */
-            height: 0;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        .img-group { margin-bottom: 25px; }
+        .img-group img { display: block; margin: 10px 0; }
+        .img-empty { color: #888; font-style: italic; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
         footer {
             text-align: center;
             margin-top: 20px;
@@ -73,14 +54,10 @@
             color: white;
             border-radius: 5px;
         }
+        .counter { text-align: center; margin: 15px 0; }
 
-        /* ===== PHẦN THÊM MỚI: Google Scholar + Markdown ===== */
-        .gs-box {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 15px;
-        }
+        /* ===== Google Scholar ===== */
+        .gs-box { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; }
         .gs-btn {
             display: inline-block;
             padding: 10px 20px;
@@ -89,16 +66,8 @@
             border-radius: 5px;
             font-weight: bold;
         }
-        .gs-btn:hover {
-            background-color: #3367d6;
-            text-decoration: none;
-        }
-        .gs-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
+        .gs-btn:hover { background-color: #3367d6; text-decoration: none; }
+        .gs-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
         .gs-stat {
             flex: 1 1 120px;
             text-align: center;
@@ -107,12 +76,9 @@
             border-radius: 5px;
             background-color: #f1f6ff;
         }
-        .gs-stat span {
-            display: block;
-            font-size: 1.6em;
-            font-weight: bold;
-            color: #007bff;
-        }
+        .gs-stat span { display: block; font-size: 1.6em; font-weight: bold; color: #007bff; }
+
+        /* ===== Thư viện Markdown ===== */
         .admin-note {
             margin: 10px 0;
             padding: 8px 12px;
@@ -123,105 +89,66 @@
             font-weight: bold;
             color: #856404;
         }
-        #md-content {
-            overflow-x: auto;
-        }
-        #md-content table {
-            border-collapse: collapse;
-        }
-        #md-content th, #md-content td {
-            border: 1px solid #ddd;
-            padding: 6px 10px;
-        }
-
-        /* ----- Thư viện tài liệu MD ----- */
-        .md-filters { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 15px; }
+        .md-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 15px; }
         .md-filter {
             padding: 6px 14px; border: 1px solid #007bff; background: white; color: #007bff;
             border-radius: 20px; cursor: pointer; font-size: 0.9em;
         }
         .md-filter.active { background: #007bff; color: white; }
-        .md-list { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:12px; }
-        .md-card { border:1px solid #ddd; border-radius:5px; padding:12px; background:#fcfcfc; display:flex; flex-direction:column; }
-        .md-badge { align-self:flex-start; font-size:0.75em; font-weight:bold; padding:2px 8px; border-radius:10px; background:#e9ecef; color:#333; margin-bottom:6px; }
-        .md-badge.sach { background:#d1e7dd; color:#0f5132; }
-        .md-badge.baibao { background:#cfe2ff; color:#084298; }
-        .md-card h3 { margin:0 0 4px; font-size:1.05em; }
-        .md-meta { font-size:0.85em; color:#666; margin-bottom:6px; }
-        .md-desc { font-size:0.9em; flex-grow:1; }
-        .md-actions { margin-top:10px; display:flex; gap:10px; font-size:0.9em; }
-        .md-actions button { padding:5px 12px; border:none; border-radius:4px; background:#007bff; color:white; cursor:pointer; }
-        .md-actions button:hover { background:#0056b3; }
-        #md-reader { display:none; margin-top:20px; padding:15px; border:2px solid #007bff; border-radius:5px; background:white; }
-        #md-reader-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
-        #md-reader-bar button { padding:5px 12px; border:none; border-radius:4px; background:#6c757d; color:white; cursor:pointer; }
-        #md-content img { max-width:100%; }
-        #md-content pre { background:#f1f3f5; padding:10px; overflow-x:auto; border-radius:4px; }
+        .md-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+        .md-card { border: 1px solid #ddd; border-radius: 5px; padding: 12px; background: #fcfcfc; display: flex; flex-direction: column; }
+        .md-badge { align-self: flex-start; font-size: 0.75em; font-weight: bold; padding: 2px 8px; border-radius: 10px; background: #e9ecef; color: #333; margin-bottom: 6px; }
+        .md-badge.sach { background: #d1e7dd; color: #0f5132; }
+        .md-badge.baibao { background: #cfe2ff; color: #084298; }
+        .md-card h3 { margin: 0 0 4px; font-size: 1.05em; }
+        .md-meta { font-size: 0.85em; color: #666; margin-bottom: 6px; }
+        .md-desc { font-size: 0.9em; flex-grow: 1; }
+        .md-actions { margin-top: 10px; display: flex; gap: 10px; align-items: center; font-size: 0.9em; }
+        .md-actions button { padding: 5px 12px; border: none; border-radius: 4px; background: #007bff; color: white; cursor: pointer; }
+        .md-actions button:hover { background: #0056b3; }
+        #md-reader { display: none; margin-top: 20px; padding: 15px; border: 2px solid #007bff; border-radius: 5px; background: white; }
+        #md-reader-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        #md-reader-bar button { padding: 5px 12px; border: none; border-radius: 4px; background: #6c757d; color: white; cursor: pointer; }
+        #md-content { overflow-x: auto; }
+        #md-content table { border-collapse: collapse; }
+        #md-content th, #md-content td { border: 1px solid #ddd; padding: 6px 10px; }
+        #md-content pre { background: #f1f3f5; padding: 10px; overflow-x: auto; border-radius: 4px; }
     </style>
 </head>
 <body>
     <header>
         <h1>Tài liệu học tập / Learning Materials</h1>
-        <p><strong></strong> Hello! I am Van-Loi Nguyen, a SoM teacher. This page offers learning materials to help students learn Mechanics. Welcome!</p>
+        <p>Hello! I am Van-Loi Nguyen, a SoM teacher. This page offers learning materials to help students learn Mechanics. Welcome!</p>
     </header>
-    
+
+    <!-- ============================================================ -->
+    <!-- SỨC BỀN VẬT LIỆU 1: ẢNH TỰ ĐỘNG NẠP, KHÔNG CẦN SỬA CODE      -->
+    <!-- Cách thêm ảnh: chỉ cần UPLOAD ảnh đúng quy ước tên (xem       -->
+    <!-- IMAGE_GROUPS ở script cuối trang).                            -->
+    <!-- ============================================================ -->
     <div class="section">
-        <h2> Sức bền vật liệu 1 - 2025 </h2>
+        <h2>Sức bền vật liệu 1 - 2025</h2>
         <div class="lesson">
-            <script>
-              // Chặn nhấp chuột phải
-              document.addEventListener('contextmenu', event => event.preventDefault());
-              // Chặn kéo thả
-              document.addEventListener('dragstart', event => event.preventDefault());
-            </script>            
-   
-            <!-- <div style="width: 100%; height: 600px;"> -->
-            <!-- <iframe src="1.pdf" width="100%" height="100%" style="border: none;"></iframe> -->
-            <!--  </div> -->
-            
-            <h3> Phương pháp mặt cắt và quy ước dấu của ứng lực Nz, Qy, Mx:</h3>
-            <img src="Vietnamese/Hinh 1_PP mat cat_Quy uoc dau.png">
-            <img src="Vietnamese/Hinh 2_PP mat cat_Quy uoc dau.png">
-           <h3> Công thức cơ bản cần nhớ Chương thanh chịu kéo (nén) đúng tâm (Chương 3):</h3>
-            <img src="Vietnamese/Hinh 3_Tom tat cong thuc SB1_Ch3.png">
-            <h3> Công thức cơ bản cần nhớ Chương thanh chịu uốn ngang phẳng (Chương 5):</h3>
-            <img src="Vietnamese/Hinh 4_Tom tat cong thuc SB1_Ch5.png">   
-            
-        <h2> Một số đề thi mẫu Sức bền 1:</h2>
-            <img src="Vietnamese/Hinh 1_SB1 De 4 26062023.png">  
-            <img src="Vietnamese/Hinh 2_SB1 De 4 26062023_DA.png">  
-            <img src="Vietnamese/Hinh 3_SB1 De 5 26062023.png">  
-            <img src="Vietnamese/Hinh 4_SB1 De 5 26062023_DA.png">  
-            <img src="Vietnamese/Hinh 5_SB1 De 6 26062023.png">  
-            <img src="Vietnamese/Hinh 6_SB1 De 6 26062023_DA.png">  
-            <img src="Vietnamese/Hinh 7_SB1 De 1 06122024.png">  
-            <img src="Vietnamese/Hinh 8_SB1 De 1 06122024_DA.png">  
-            <img src="Vietnamese/Hinh 9_SB1 De 2 06122024.png">  
-            <img src="Vietnamese/Hinh 10_SB1 De 2 06122024_DA.png">  
-           
-            <!-- <p>Video hướng dẫn:</p> -->
-            <!-- <div class="video-container"> -->
-            <!-- <iframe src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe> -->
-            <!-- </div> -->       
-            
+            <div class="img-group" id="grp-matcat"></div>
+            <div class="img-group" id="grp-ch3"></div>
+            <div class="img-group" id="grp-ch5"></div>
+            <div class="img-group" id="grp-dethi"></div>
         </div>
     </div>
 
     <!-- ============================================================ -->
-    <!-- ============ PHẦN THÊM MỚI: GOOGLE SCHOLAR (TỰ ĐỘNG) ============ -->
-    <!-- GHI CHÚ: KHÔNG CẦN SỬA GÌ Ở ĐÂY. CHỈ ĐIỀN BIẾN GS_ID Ở SCRIPT CUỐI TRANG. -->
-    <!-- CHƯA ĐIỀN GS_ID THÌ CẢ MỤC NÀY TỰ ẨN. -->
+    <!-- GOOGLE SCHOLAR (TỰ ĐỘNG). CHỈ ĐIỀN GS_ID Ở SCRIPT CUỐI TRANG. -->
+    <!-- CHƯA ĐIỀN GS_ID THÌ CẢ MỤC NÀY TỰ ẨN.                          -->
     <!-- ============================================================ -->
     <div class="section" id="google-scholar" style="display:none">
         <h2>Công trình khoa học (Google Scholar / Publications)</h2>
         <div class="lesson">
             <div class="gs-box">
                 <a class="gs-btn" id="gs-link" href="#" target="_blank" rel="noopener noreferrer">
-                    Xem hồ sơ Google Scholar / View my Google Scholar profile
+                    Xem hồ sơ Google Scholar GV Nguyễn Văn Lợi
                 </a>
                 <span>Danh sách công bố, số trích dẫn và chỉ số h-index được cập nhật trực tiếp trên Google Scholar.</span>
             </div>
-            <!-- KHỐI SỐ LIỆU: TỰ ẨN, CHỈ HIỆN KHI LẤY ĐƯỢC SỐ LIỆU THẬT -->
             <div class="gs-stats" id="gs-stats" style="display:none">
                 <div class="gs-stat"><span id="gs-cit">--</span>Trích dẫn / Citations</div>
                 <div class="gs-stat"><span id="gs-h">--</span>h-index</div>
@@ -231,23 +158,19 @@
     </div>
 
     <!-- ============================================================ -->
-    <!-- ======= PHẦN THÊM MỚI: THƯ VIỆN TÀI LIỆU / SÁCH / BÀI BÁO (FILE .md) ======= -->
-    <!-- GHI CHÚ: CÁCH THÊM: (1) UPLOAD FILE .md VÀO THƯ MỤC "md/" CẠNH index.html. -->
-    <!-- (2) THÊM 1 DÒNG VÀO KHỐI MD_DOCS Ở SCRIPT CUỐI TRANG. -->
-    <!-- CHƯA CÓ FILE NÀO THÌ CẢ MỤC NÀY TỰ ẨN. -->
+    <!-- THƯ VIỆN TÀI LIỆU / SÁCH / BÀI BÁO (FILE .md)                 -->
+    <!-- CHƯA CÓ FILE NÀO THÌ CẢ MỤC NÀY TỰ ẨN.                        -->
     <!-- ============================================================ -->
     <div class="section" id="markdown-area" style="display:none">
         <h2>Thư viện tài liệu, sách, bài báo khoa học (Markdown)</h2>
         <div class="lesson">
             <div class="md-filters" id="md-filters">
-                <button class="md-filter active" data-type="all">Tất cả</button>
-                <button class="md-filter" data-type="tailieu">Tài liệu</button>
-                <button class="md-filter" data-type="sach">Sách</button>
-                <button class="md-filter" data-type="baibao">Bài báo khoa học</button>
+                <button class="md-filter active" data-type="all" type="button">Tất cả</button>
+                <button class="md-filter" data-type="tailieu" type="button">Tài liệu</button>
+                <button class="md-filter" data-type="sach" type="button">Sách</button>
+                <button class="md-filter" data-type="baibao" type="button">Bài báo khoa học</button>
             </div>
-
             <div class="md-list" id="md-list"></div>
-
             <div id="md-reader">
                 <div id="md-reader-bar">
                     <strong id="md-reader-title"></strong>
@@ -257,45 +180,124 @@
             </div>
         </div>
     </div>
-    <!-- ================= HẾT PHẦN THÊM MỚI ================= -->
-    
-<!--     <div class="section">                                           -->
-<!--         <h2>Tài liệu tiếng Anh (English Learning Materials) </h2>     -->
-<!--         <div class="lesson">                                           -->
-<!--             <h3>Lesson 1: </h3>                                         -->
-<!--            <p><a href="english/lesson1/guide.pdf">Exercise Guide (PDF)</a></p>  -->
-<!--            <p>Illustration:</p>  -->
-<!--            <img src="english/lesson1/lesson1-image1.jpg" alt="Illustration for Lesson 1"> -->
-<!--           <p>Instructional Video:</p>  -->
-<!--        </div>  -->
-<!--       <div class="lesson">   -->
-<!--            <h3>Lesson 2: </h3>  -->
-<!--           <p><a href="english/lesson2/guide.md">Exercise Guide (Markdown)</a></p>  -->
-<!--           <p>No illustration or video available for this lesson yet.</p>  -->
-<!--          </div>       -->
-<!--     </div>              -->
-<!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com" target="_blank">
-<img src="https://hitwebcounter.com/counter/counter.php?page=20698264&style=0036&nbdigits=5&type=page&initCount=0" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>             
+
+    <div class="counter">
+        <!-- hitwebcounter Code START -->
+        <a href="https://www.hitwebcounter.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=20698264&amp;style=0036&amp;nbdigits=5&amp;type=page&amp;initCount=0" title="Counter Widget" alt="Visit counter For Websites" border="0">
+        </a>
+        <!-- hitwebcounter Code END -->
+    </div>
+
     <footer>
-        <p><strong></strong> © 2025 Van-Loi Nguyen. All rights reserved. The content on this page is owned by Van-Loi Nguyen and may not be reproduced without permission.</p>
+        <p>© 2025 Van-Loi Nguyen. All rights reserved. The content on this page is owned by Van-Loi Nguyen and may not be reproduced without permission.</p>
     </footer>
 
-    <!-- ===== PHẦN THÊM MỚI: SCRIPT GOOGLE SCHOLAR ===== -->
+    <!-- ===================== SCRIPT 1: CHỐNG COPY CƠ BẢN ===================== -->
+    <script>
+        // Chỉ mang tính răn đe, không bảo vệ tuyệt đối (người dùng vẫn lưu được ảnh bằng DevTools).
+        document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+        document.addEventListener("dragstart", function (e) { e.preventDefault(); });
+    </script>
+
+    <!-- ===================== SCRIPT 2: TỰ ĐỘNG NẠP ẢNH ===================== -->
+    <script>
+        /*
+         * QUY ƯỚC TÊN ẢNH (upload vào đúng thư mục, đánh số liên tục từ 1, không bỏ số):
+         *
+         *   Vietnamese/matcat-1.png, matcat-2.png, ...   -> Phương pháp mặt cắt, quy ước dấu
+         *   Vietnamese/ch3-1.png,    ch3-2.png, ...      -> Công thức Chương 3
+         *   Vietnamese/ch5-1.png,    ch5-2.png, ...      -> Công thức Chương 5
+         *   Vietnamese/dethi-1.png,  dethi-2.png, ...    -> Đề thi mẫu (đề, đáp án xen kẽ)
+         *
+         * Định dạng chấp nhận: png, jpg, jpeg, webp (thử lần lượt theo thứ tự trong EXTS).
+         * Muốn thêm ảnh: chỉ cần upload ảnh kế tiếp (vd dethi-11.png). Không sửa code.
+         * Muốn thêm nhóm mới: thêm 1 dòng vào IMAGE_GROUPS và 1 thẻ <div id="..."> ở trên.
+         */
+        var IMAGE_GROUPS = [
+            { target: "grp-matcat", title: "Phương pháp mặt cắt và quy ước dấu của ứng lực Nz, Qy, Mx:",
+              folder: "Vietnamese", prefix: "matcat-" },
+            { target: "grp-ch3", title: "Công thức cơ bản cần nhớ - Chương thanh chịu kéo (nén) đúng tâm (Chương 3):",
+              folder: "Vietnamese", prefix: "ch3-" },
+            { target: "grp-ch5", title: "Công thức cơ bản cần nhớ - Chương thanh chịu uốn ngang phẳng (Chương 5):",
+              folder: "Vietnamese", prefix: "ch5-" },
+            { target: "grp-dethi", title: "Một số đề thi mẫu Sức bền 1:",
+              folder: "Vietnamese", prefix: "dethi-" }
+        ];
+        var EXTS = ["png", "jpg", "jpeg", "webp"];
+        var MAX_PER_GROUP = 100; // giới hạn an toàn, tránh vòng lặp vô hạn
+
+        (function () {
+            // Thử tải 1 URL, trả về Promise<Image> (resolve) hoặc reject nếu không có file.
+            function tryLoad(url) {
+                return new Promise(function (resolve, reject) {
+                    var img = new Image();
+                    img.onload = function () { resolve(img); };
+                    img.onerror = function () { reject(); };
+                    img.src = url;
+                });
+            }
+
+            // Thử lần lượt các đuôi file cho 1 số thứ tự.
+            function loadIndex(base, i) {
+                var k = 0;
+                function next() {
+                    if (k >= EXTS.length) return Promise.reject();
+                    var url = base + i + "." + EXTS[k++];
+                    return tryLoad(url).catch(next);
+                }
+                return next();
+            }
+
+            function loadGroup(g) {
+                var box = document.getElementById(g.target);
+                if (!box) return;
+                var base = g.folder + "/" + g.prefix;
+                var h = document.createElement("h3");
+                h.textContent = g.title;
+                var count = 0;
+
+                function step(i) {
+                    if (i > MAX_PER_GROUP) return finish();
+                    loadIndex(base, i).then(function (img) {
+                        if (count === 0) box.appendChild(h); // chỉ hiện tiêu đề khi có ít nhất 1 ảnh
+                        count++;
+                        img.alt = g.title + " (" + i + ")";
+                        img.loading = "lazy";
+                        img.draggable = false;
+                        box.appendChild(img);
+                        step(i + 1);
+                    }, finish);
+                }
+                function finish() {
+                    if (count === 0) box.style.display = "none"; // nhóm chưa có ảnh -> ẩn
+                }
+                step(1);
+            }
+
+            IMAGE_GROUPS.forEach(loadGroup); // các nhóm nạp song song
+        })();
+    </script>
+
+    <!-- ===================== SCRIPT 3: GOOGLE SCHOLAR ===================== -->
     <script>
         // >>> CHỈ CẦN ĐIỀN GOOGLE SCHOLAR ID VÀO ĐÂY <<<
-        // GS ID = PHẦN SAU "user=" TRONG LINK HỒ SƠ. VÍ DỤ link: https://scholar.google.com/citations?user=AbCdEfGhIjKl&hl=vi  ->  GS_ID = "AbCdEfGhIjKl"
+        // GS ID = phần sau "user=" trong link hồ sơ.
+        // Ví dụ: https://scholar.google.com/citations?user=AbCdEfGhIjKl&hl=vi  ->  GS_ID = "AbCdEfGhIjKl"
+        // Để "" (rỗng) thì cả mục tự ẩn.
         var GS_ID = "CYrMZakAAAAJ";
 
-        // CÁCH LẤY SỐ LIỆU (TRÍCH DẪN, h-index, i10-index), THỬ LẦN LƯỢT:
-        //  1) FILE "scholar.json" CẠNH index.html (TẠO BẰNG update_scholar.py, ỔN ĐỊNH NHẤT)
-        //  2) LẤY TRỰC TIẾP QUA DỊCH VỤ TRUNG GIAN (CORS PROXY) NẾU GS_USE_PROXY = true (KHÔNG ĐẢM BẢO, GOOGLE CÓ THỂ CHẶN)
-        //  KHÔNG LẤY ĐƯỢC -> KHỐI SỐ LIỆU TỰ ẨN, NÚT LINK VẪN HIỆN.
+        // Cách lấy số liệu, thử lần lượt:
+        //  1) File "scholar.json" cạnh index.html (tạo bằng update_scholar.py, ổn định nhất)
+        //     Dạng: {"citations": 123, "h_index": 5, "i10_index": 3}
+        //  2) Cache trong trình duyệt (24 giờ)
+        //  3) CORS proxy nếu GS_USE_PROXY = true (không đảm bảo, Google có thể chặn)
+        // Không lấy được -> khối số liệu tự ẩn, nút link vẫn hiện.
         var GS_USE_PROXY = true;
         var GS_PROXY = "https://api.allorigins.win/raw?url=";
 
         (function () {
-            if (!GS_ID || GS_ID === "YOUR_SCHOLAR_ID") return; // CHƯA ĐIỀN ID -> ẨN CẢ MỤC
+            if (!GS_ID || GS_ID === "YOUR_SCHOLAR_ID") return;
             var PROFILE = "https://scholar.google.com/citations?user=" + encodeURIComponent(GS_ID);
             var KEY = "gs_stats_" + GS_ID;
 
@@ -311,46 +313,48 @@
                 document.getElementById("gs-stats").style.display = "";
             }
 
+            function validStats(d) {
+                return d && typeof d.citations === "number" &&
+                       typeof d.h_index === "number" && typeof d.i10_index === "number";
+            }
+
             function fromJson() {
                 return fetch("scholar.json", { cache: "no-cache" })
-                    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-                    .then(function (d) {
-                        if (!d || typeof d.citations !== "number") throw 0;
-                        return d;
-                    });
+                    .then(function (r) { if (!r.ok) throw new Error("no json"); return r.json(); })
+                    .then(function (d) { if (!validStats(d)) throw new Error("bad json"); return d; });
             }
 
             function fromCache() {
                 try {
                     var c = JSON.parse(localStorage.getItem(KEY));
-                    if (c && c.d && Date.now() - c.t < 864e5) return Promise.resolve(c.d); // 24 giờ
+                    if (c && validStats(c.d) && Date.now() - c.t < 864e5) return Promise.resolve(c.d);
                 } catch (e) {}
-                return Promise.reject();
+                return Promise.reject(new Error("no cache"));
             }
 
             function fromProxy() {
-                if (!GS_USE_PROXY) return Promise.reject();
+                if (!GS_USE_PROXY) return Promise.reject(new Error("proxy off"));
                 return fetch(GS_PROXY + encodeURIComponent(PROFILE + "&hl=en"))
-                    .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+                    .then(function (r) { if (!r.ok) throw new Error("proxy http"); return r.text(); })
                     .then(function (html) {
                         var doc = new DOMParser().parseFromString(html, "text/html");
                         var c = doc.querySelectorAll("#gsc_rsb_st td.gsc_rsb_std");
-                        if (c.length < 6) throw 0;
+                        if (c.length < 6) throw new Error("parse");
                         var d = { citations: toNum(c[0].textContent), h_index: toNum(c[2].textContent), i10_index: toNum(c[4].textContent) };
-                        if (isNaN(d.citations) || isNaN(d.h_index) || isNaN(d.i10_index)) throw 0;
+                        if (isNaN(d.citations) || isNaN(d.h_index) || isNaN(d.i10_index)) throw new Error("nan");
                         try { localStorage.setItem(KEY, JSON.stringify({ t: Date.now(), d: d })); } catch (e) {}
                         return d;
                     });
             }
 
-            fromJson().catch(fromCache).catch(fromProxy).then(show, function () { /* KHÔNG CÓ SỐ LIỆU: GIỮ KHỐI ẨN */ });
+            fromJson().catch(fromCache).catch(fromProxy).then(show, function () { /* giữ khối ẩn */ });
         })();
     </script>
 
-    <!-- ===== PHẦN THÊM MỚI: SCRIPT THƯ VIỆN FILE MARKDOWN ===== -->
+    <!-- ===================== SCRIPT 4: THƯ VIỆN MARKDOWN ===================== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
     <script>
-        // >>> THÊM TÀI LIỆU MD TẠI ĐÂY (MỖI TÀI LIỆU 1 DÒNG, CÁCH NHAU BẰNG DẤU PHẨY). ĐỂ TRỐNG = MỤC TỰ ẨN <<<
+        // >>> THÊM TÀI LIỆU MD TẠI ĐÂY (mỗi tài liệu 1 dòng, cách nhau bằng dấu phẩy). Để trống = mục tự ẩn <<<
         // type: "tailieu" (Tài liệu) | "sach" (Sách) | "baibao" (Bài báo khoa học)
         // file: đường dẫn file .md đã upload, nên đặt tên không dấu, không khoảng trắng
         // MẪU (bỏ // ở đầu dòng để dùng):
@@ -422,8 +426,10 @@
                         }
                     })
                     .catch(function () {
-                        content.innerHTML = '<div class="admin-note">KHÔNG TÌM THẤY FILE "' + d.file +
-                            '". HÃY KIỂM TRA ĐÃ UPLOAD FILE VÀO THƯ MỤC md/ CHƯA, VÀ TRANG ĐANG CHẠY TRÊN WEB (KHÔNG PHẢI file://).</div>';
+                        content.innerHTML = "";
+                        var note = el("div", "admin-note",
+                            'KHÔNG TÌM THẤY FILE "' + d.file + '". HÃY KIỂM TRA ĐÃ UPLOAD FILE VÀO THƯ MỤC md/ CHƯA, VÀ TRANG ĐANG CHẠY TRÊN WEB (KHÔNG PHẢI file://).');
+                        content.appendChild(note);
                     });
             }
 
@@ -437,15 +443,16 @@
                 };
             });
 
-            // Chỉ giữ lại những tài liệu có file thật trên máy chủ; nếu không còn mục nào thì ẩn cả khu vực
+            // Chỉ giữ lại tài liệu có file thật; không còn mục nào thì giữ khu vực ẩn.
             function exists(d) {
                 return fetch(d.file, { method: "HEAD" })
                     .then(function (r) { return r.ok; })
                     .catch(function () { return false; });
             }
+            if (!MD_DOCS.length) return;
             Promise.all(MD_DOCS.map(exists)).then(function (res) {
                 MD_DOCS = MD_DOCS.filter(function (d, i) { return res[i]; });
-                if (!MD_DOCS.length) return; // KHÔNG CÓ FILE NÀO -> GIỮ NGUYÊN TRẠNG THÁI ẨN
+                if (!MD_DOCS.length) return;
                 document.querySelectorAll(".md-filter").forEach(function (b) {
                     var t = b.getAttribute("data-type");
                     if (t !== "all" && !MD_DOCS.some(function (d) { return d.type === t; })) b.style.display = "none";
