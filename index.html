@@ -285,7 +285,7 @@
     <script>
         // >>> CHỈ CẦN ĐIỀN GOOGLE SCHOLAR ID VÀO ĐÂY <<<
         // GS ID = PHẦN SAU "user=" TRONG LINK HỒ SƠ. VÍ DỤ link: https://scholar.google.com/citations?user=AbCdEfGhIjKl&hl=vi  ->  GS_ID = "AbCdEfGhIjKl"
-        var GS_ID = "YOUR_SCHOLAR_ID";
+        var GS_ID = "CYrMZakAAAAJ";
 
         // CÁCH LẤY SỐ LIỆU (TRÍCH DẪN, h-index, i10-index), THỬ LẦN LƯỢT:
         //  1) FILE "scholar.json" CẠNH index.html (TẠO BẰNG update_scholar.py, ỔN ĐỊNH NHẤT)
@@ -295,8 +295,8 @@
         var GS_PROXY = "https://api.allorigins.win/raw?url=";
 
         (function () {
-            if (!GS_ID || GS_ID === "CYrMZakAAAAJ&hl=en") return; // CHƯA ĐIỀN ID -> ẨN CẢ MỤC
-          var PROFILE = "https://scholar.google.com/citations?user=" + encodeURIComponent(GS_ID);
+            if (!GS_ID || GS_ID === "YOUR_SCHOLAR_ID") return; // CHƯA ĐIỀN ID -> ẨN CẢ MỤC
+            var PROFILE = "https://scholar.google.com/citations?user=" + encodeURIComponent(GS_ID);
             var KEY = "gs_stats_" + GS_ID;
 
             document.getElementById("gs-link").href = PROFILE + "&hl=vi";
