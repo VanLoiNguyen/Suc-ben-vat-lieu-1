@@ -44,6 +44,15 @@
         .img-group { margin-bottom: 25px; }
         .img-group img { display: block; margin: 10px 0; }
         .img-empty { color: #888; font-style: italic; }
+        .img-group h3, .img-group h2, .img-group p, .img-group div {
+            font-size: 32px !important;
+            font-weight: bold !important;
+            line-height: 1.5 !important;
+            color: #333;
+            margin-top: 15px;
+            margin-bottom: 10px; 
+        }
+
         a { color: #007bff; text-decoration: none; }
         a:hover { text-decoration: underline; }
         footer {
@@ -149,11 +158,13 @@
     <!-- IMAGE_GROUPS ở script cuối trang).                            -->
     <!-- ============================================================ -->
     <div class="section">
-        <h2>Sức bền vật liệu 1 - 2025</h2>
+        <h2> Phần A - Tóm tắt Học phần Sức bền vật liệu 1 - HUCE</h2>
         <div class="lesson">
             <div class="img-group" id="grp-matcat"></div>
             <div class="img-group" id="grp-ch3"></div>
             <div class="img-group" id="grp-ch5"></div>
+
+        <h2> Phần B - Một số đề thi mẫu Sức bền vật liệu 1 </h2>
             <div class="img-group" id="grp-dethi"></div>
         </div>
     </div>
@@ -163,13 +174,17 @@
     <!-- CHƯA ĐIỀN GS_ID THÌ CẢ MỤC NÀY TỰ ẨN.                          -->
     <!-- ============================================================ -->
     <div class="section" id="google-scholar" style="display:none">
-        <h2>Công trình khoa học (Google Scholar / Publications)</h2>
-        <div class="lesson">
+        <h2>Phần C - Thông tin về giảng viên </h2>
+        <span>  Họ và tên giảng viên: Nguyễn Văn Lợi <br>
+                Nhóm chuyên môn (Bộ môn) Sức bền vật liệu, HUCE <br>
+                Địa chỉ NCM: Phòng 101 Tầng 2, Nhà Thí nghiệm, HUCE <br><br></span>
+       <div class="lesson">
             <div class="gs-box" id="gs-box" style="display:none">
                 <a class="gs-btn" id="gs-link" href="#" target="_blank" rel="noopener noreferrer">
-                    Xem hồ sơ Google Scholar GV Nguyễn Văn Lợi
+                    Xem hồ sơ Google Scholar GV Nguyễn Văn Lợi 
                 </a>
-                <span>Danh sách công bố, số trích dẫn và chỉ số h-index được cập nhật trực tiếp trên Google Scholar.</span>
+                <span><strong> <br>
+                    Tóm tắt danh sách các bài báo khoa học, số trích dẫn và chỉ số h-index trên Google Scholar.</strong></span>
             </div>
             <div class="gs-stats" id="gs-stats" style="display:none">
                 <div class="gs-stat"><span id="gs-cit">--</span>Trích dẫn / Citations</div>
@@ -191,6 +206,11 @@
                 </div>
                 <ol class="gs-pub-list" id="gs-pub-list"></ol>
                 <button class="gs-more" id="gs-more" type="button" style="display:none">Xem tất cả</button>
+                <p style="margin:12px 0 0">
+                    <a id="gs-pubs-link" href="#" target="_blank" rel="noopener noreferrer" style="display:none">
+                        Xem danh sách đầy đủ trên Google Scholar →
+                    </a>
+                </p>
             </div>
         </div>
     </div>
@@ -255,13 +275,13 @@
          * Muốn thêm nhóm mới: thêm 1 dòng vào IMAGE_GROUPS và 1 thẻ <div id="..."> ở trên.
          */
         var IMAGE_GROUPS = [
-            { target: "grp-matcat", title: "Phương pháp mặt cắt và quy ước dấu của ứng lực Nz, Qy, Mx:",
+            { target: "grp-matcat", title: "A1 - Phương pháp mặt cắt và quy ước dấu của ứng lực Nz, Qy, Mx:",
               folder: "Vietnamese", prefix: "matcat-" },
-            { target: "grp-ch3", title: "Công thức cơ bản cần nhớ - Chương thanh chịu kéo (nén) đúng tâm (Chương 3):",
+            { target: "grp-ch3", title: "A2 - Công thức cơ bản cần nhớ - Chương 3:",
               folder: "Vietnamese", prefix: "ch3-" },
-            { target: "grp-ch5", title: "Công thức cơ bản cần nhớ - Chương thanh chịu uốn ngang phẳng (Chương 5):",
+            { target: "grp-ch5", title: "A3 - Công thức cơ bản cần nhớ - Chương 5:",
               folder: "Vietnamese", prefix: "ch5-" },
-            { target: "grp-dethi", title: "Một số đề thi mẫu Sức bền 1:",
+            { target: "grp-dethi", title: "Một số đề thi như sau:",
               folder: "Vietnamese", prefix: "dethi-" }
         ];
         var EXTS = ["png", "jpg", "jpeg", "webp"];
@@ -331,6 +351,12 @@
         //  - Không có ID và không có scholar.json -> cả mục tự ẩn.
         var GS_ID = "";
 
+        // >>> HOẶC DÁN NGUYÊN LINK HỒ SƠ GOOGLE SCHOLAR VÀO ĐÂY (dễ hơn GS_ID) <<<
+        // Ví dụ: var GS_URL = "https://scholar.google.com/citations?user=AbCdEfGhIjKl&hl=vi";
+        // Có link -> hiện nút "Xem hồ sơ Google Scholar" + link cuối danh sách bài báo.
+        // ID được tự tách từ phần "user=" nên KHÔNG cần điền GS_ID nữa.
+        var GS_URL = "";
+
         // Cách lấy số liệu, thử lần lượt:
         //  1) File "scholar.json" cạnh index.html (tạo bằng update_scholar.py, ổn định nhất)
         //     Dạng tối thiểu: {"citations": 123, "h_index": 5, "i10_index": 3}
@@ -349,20 +375,34 @@
         var GS_PUBS_INITIAL = 10; // số bài hiện ban đầu, bấm "Xem tất cả" để hiện hết
 
         (function () {
-            var ID = (GS_ID && GS_ID !== "YOUR_SCHOLAR_ID") ? GS_ID : "";
+            var ID = (GS_ID && GS_ID !== "YOUR_SCHOLAR_ID") ? GS_ID : "CYrMZakAAAAJ";
+            var URL_IN = String(GS_URL || "").trim();
+            if (!ID && URL_IN) {
+                var m = URL_IN.match(/[?&]user=([^&#]+)/); // tách ID từ link
+                if (m) ID = decodeURIComponent(m[1]);
+            }
             var PROFILE = "", KEY = "";
             var section = document.getElementById("google-scholar");
 
-            // Có ID -> bật nút link hồ sơ (ID lấy từ GS_ID hoặc từ scholar.json)
+            // Hiện nút link hồ sơ + link cuối danh sách bài báo
+            function showLink(href) {
+                document.getElementById("gs-link").href = href;
+                document.getElementById("gs-box").style.display = "";
+                var pl = document.getElementById("gs-pubs-link");
+                pl.href = href;
+                pl.style.display = "";
+                section.style.display = "";
+            }
+
+            // ID lấy từ GS_ID, GS_URL hoặc từ scholar.json
             function setId(id) {
                 ID = id;
                 PROFILE = "https://scholar.google.com/citations?user=" + encodeURIComponent(ID);
                 KEY = "gs_stats_" + ID;
-                document.getElementById("gs-link").href = PROFILE + "&hl=vi";
-                document.getElementById("gs-box").style.display = "";
-                section.style.display = "";
+                showLink(URL_IN || PROFILE + "&hl=vi");
             }
             if (ID) setId(ID);
+            else if (/^https?:\/\//i.test(URL_IN)) showLink(URL_IN);
 
             function toNum(t) { return parseInt(String(t).replace(/\D/g, ""), 10); }
 
